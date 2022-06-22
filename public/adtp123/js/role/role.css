@@ -1,0 +1,11 @@
+   /* .card-header:first-child {
+        background: rgb(1, 93, 163);
+        border-radius: 10px;
+    } */
+    .card-body {
+        background-color : #ffffff;
+        color: blue
+    }
+    input[type='checkbox']{
+        transform: scale(1.2);
+    }

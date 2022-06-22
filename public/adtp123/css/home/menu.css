@@ -1,0 +1,9 @@
+#my-nav-bar>ul>li>a{
+    font-weight: 600;
+}
+#my-nav-bar ul li a:hover {
+    color: red;
+}
+#menu{
+    box-shadow: 2px 3px 10px rgba(45, 52, 54,1.0);
+}

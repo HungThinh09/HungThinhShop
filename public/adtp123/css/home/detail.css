@@ -1,0 +1,27 @@
+.productInfo {
+    padding: 2vh 0 0 2vh;
+}
+
+.img-product {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+}
+
+.img-product img {
+    width: 100%;
+    box-shadow: 5px 5px 5px 5px rgba(48, 57, 82, .2);
+    padding :10px;
+}
+
+button:not(:disabled) {
+    border: none;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: rgba(32, 33, 34, 0.4);
+}
+.searchRight{
+    min-height: 100vh;
+}
