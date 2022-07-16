@@ -16,6 +16,7 @@
     </style>
 @endsection
 @section('content')
+
     <div id="content">
         <x-title-product :title="'Sản phẩm Hot'" />
        <x-product :products="$productHot"/>

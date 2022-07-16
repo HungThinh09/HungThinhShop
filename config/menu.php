@@ -126,4 +126,10 @@ return [
             ]
         ]
     ]
+    ,[
+        'label' => 'Manager File',
+        'route' => 'managerFile',
+        'icon' => 'fa-tasks',
+        'can' => 'order',
+    ]
 ];

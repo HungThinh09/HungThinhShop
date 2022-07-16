@@ -7,36 +7,38 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\product;
 use App\Models\Order;
+use App\Models\Banner;
 
 class IndexController extends Controller
 
 {
     private $menu;
     private $category;
-    public function __construct(Category $category, product $product, Order $order)
+    public function __construct(Category $category, product $product, Order $order, Banner $banner)
     {
         $this->category = $category;
         $this->product = $product;
         $this->order = $order;
+        $this->banner = $banner;
         $this->menu = $category->where('parent_id', 0)->where('status', 1)->get();
     }
     public function index()
-    {
+    {   
+        $banners= $this->banner->orderBy('prioty','ASC')->where('status',1)->get();
         $menus = $this->menu;
         $productHot = $this->product->limit(12)->Orderby('id', 'DESC')->get();
         $productNew = $this->product->limit(12)->OrderbyRaw('rand()')->get();
         return View('Home.index', [
-            'title' => 'Trang chủ nè',
+            'title' => 'Trang chủ nè ',
             'menus' => $menus,
             'productHot' => $productHot,
-            'productNew' => $productNew
+            'productNew' => $productNew,
+            'banners' => $banners
         ]);
     }
-    public function menu()
+    public function math()
     {
-        return View('Home.index', [
-            'title' => 'Trang chủ nè',
-        ]);
+        
     }
     public function search(Request $request)
     {

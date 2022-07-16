@@ -22,6 +22,7 @@ class CartController extends Controller
         $this->category = $category;
         $this->product = $product;
     }
+    
     public function index(CartHelper $cart)
     {
         $cart->clear();

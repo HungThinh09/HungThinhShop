@@ -17,7 +17,7 @@
                         <div class="product-info">
                             <div class="product-cat">
                                 @foreach ($product->category as $cate)
-                                    <span> $cate->nameProduct</span>
+                                     <span> {{$cate->categoryName}} / </span>
                                 @endforeach
 
                             </div>

@@ -28,11 +28,13 @@ class ProductController extends Controller
     }
     public function index()
     {
-        $paginate = 5;
-        $products = $this->product->bycategory()->status()->searchProduct()->paginate($paginate);
+        $paginate = 10;
+        $products = $this->product->bycategory()->status()->searchProduct();
+        $count = $products->count();
+        $products = $products->paginate($paginate);
         return view('admin.product.index', [
             'title' => 'Danh sách sản phẩm',
-            'tieude' => 'Danh sách Sản phẩm ( ' . $products->count() . ' )',
+            'tieude' => 'Danh sách Sản phẩm ( ' . $count. ' )',
             'products' => $products,
             'paginate' => $paginate
         ]);

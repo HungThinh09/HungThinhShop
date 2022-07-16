@@ -30,18 +30,21 @@ Route::resource('cart', 'CartController')->only(['index', 'store', 'update', 'ed
         'edit' => 'remove',
         'index' => 'clear'
     ]);
+Route::get('order', 'OrderController@order')->name('order');
 
 // -----------------------------------------Admin
 Route::get('/admin-login', [AuthController::class, 'login'])->name('login');
+
+Route::get('Test/Api', function () {
+    return view('Api.category.index');
+});
 route::post('admin-logon', [AuthController::class, 'logon'])->name('logon');
 route::prefix('admin')->middleware('auth')->group(function () {
     route::get('', [AuthController::class, 'index'])->name('admin');
     route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
     route::get('/product/Delete-List', [ProductController::class, 'deleteList'])->name('deleteList')->middleware('can:productListDelete');
     route::get('/product/restore/{id}', [ProductController::class, 'restore'])->name('restore')->middleware('can:productRestore');
     route::get('/product/Delete/{id}', [ProductController::class, 'deleteOver'])->name('deleteOver')->middleware('can:productForceDelete');
-    Route::get('order', 'OrderController@order')->name('order');
     Route::resource('category', 'CategoryController')->except(['show'])->middleware('can:category');
     Route::resource('product', 'ProductController')->middleware('can:product');
     Route::resource('banner', 'BannerController')->middleware('can:banner');
@@ -50,6 +53,7 @@ route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('setting', 'SettingController')->middleware('can:setting');
     Route::resource('user', 'UserController')->middleware('can:user');
     Route::resource('managerOrder', 'ManagerOrderController')->middleware('can:order');
+    Route::get('ManagerFile', 'FileController@index')->name('managerFile');
     // Route::resources([
     //     'category' => 'CategoryController',
     //     'product' => 'ProductController',

@@ -18,7 +18,7 @@ class OrderController extends Controller
     }
     public function order(AddOrder $data, CartHelper $cart){
         $codeId = substr($data['phone'], -3,) . rand(1, 10000); 
-     
+      
         $order = $this->order->create([
             'name' => $data['name'],
             'phone' => $data['phone'],

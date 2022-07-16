@@ -26,7 +26,7 @@ class BannerController extends Controller
     public function index()
     {
         $paginate = 5;
-        $banners = $this->banner->search()->paginate($paginate);
+        $banners = $this->banner->orderBy('prioty','ASC')->search()->paginate($paginate);
         return view('Admin.banner.index', [
             'title' => 'Danh sách banner',
             'tieude' => 'Bannners',
